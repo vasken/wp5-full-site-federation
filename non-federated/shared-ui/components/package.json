@@ -8,8 +8,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "author": {
-    "name": "Jack Herrington",
-    "email": "jherr@pobox.com"
+    "name": "Robert Beghian"
   },
   "devDependencies": {
     "@babel/cli": "7.10.1",

@@ -1,14 +1,14 @@
-const getImage = (pokemon) =>
-  `http://localhost:7000/images/${pokemon.name.english
+const getImage = (character) =>
+  `http://localhost:7000/images/${character.id}-${character.name
     .toLowerCase()
     .replace(" ", "-")}.jpg`;
 
-const searchPokemon = (_, { q }) =>
+const searchCharacters = (_, { q }) =>
   fetch(`http://localhost:7000/api/search?q=${escape(q)}`).then((resp) =>
     resp.json()
   );
 
-const getPokemonById = (_, { id }) =>
+const getCharacterById = (_, { id }) =>
   fetch(`http://localhost:7000/api/getById?id=${id}`).then((resp) =>
     resp.json()
   );
@@ -16,11 +16,11 @@ const getPokemonById = (_, { id }) =>
 const getCartItems = () =>
   fetch("http://localhost:7001/api/cart").then((resp) => resp.json());
 
-const addToCart = (pokemon) =>
+const addToCart = (character) =>
   fetch("http://localhost:7001/api/add", {
     method: "POST",
     body: JSON.stringify({
-      pokemon,
+      character,
     }),
     headers: {
       "content-type": "application/json",
@@ -39,8 +39,8 @@ const checkout = () =>
 module.exports = {
   getImage,
   checkout,
-  searchPokemon,
-  getPokemonById,
+  searchCharacters,
+  getCharacterById,
   getCartItems,
   addToCart,
 };

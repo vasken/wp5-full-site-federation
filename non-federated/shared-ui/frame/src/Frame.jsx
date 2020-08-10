@@ -10,7 +10,7 @@ const Frame = ({ items = [], page = "home", children }) => (
         href={page === "home" ? "/" : "http://localhost:8080/"}
         style={{ color: "white" }}
       >
-        Pokeshop
+        DC Battleground
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -22,7 +22,7 @@ const Frame = ({ items = [], page = "home", children }) => (
             Home
           </Nav.Link>
           <Nav.Link
-            href={page === "search" ? "/" : "http://localhost:8081/search"}
+            href={page === "search" ? "/" : "http://localhost:8083/search"}
             style={{ color: "white" }}
           >
             Search

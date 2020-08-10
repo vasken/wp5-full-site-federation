@@ -1,13 +1,13 @@
 const express = require("express");
 
-const pokemon = require("./pokemon");
+const characters = require("./dc");
 
-const getPokemonPrice = ({ base }) =>
-  Math.round(Object.values(base).reduce((a, n) => a + n) / 6);
+const getCharacterPower = ({ powerstats }) =>
+  Math.round(Object.values(powerstats).reduce((a, n) => a + n) / 6);
 
-const pokemonWithPrices = pokemon.map((p) => ({
+const charactersWithPower = characters.map((p) => ({
   ...p,
-  price: getPokemonPrice(p),
+  power: getCharacterPower(p),
 }));
 
 const app = express();
@@ -19,16 +19,16 @@ app.use("/images", express.static("public"));
 
 app.get("/api/getById", function (req, res) {
   const qId = parseInt(req.query.id);
-  res.send(pokemonWithPrices.find(({ id }) => id === qId) || null);
+  res.send(charactersWithPower.find(({ id }) => id === qId) || null);
 });
 
 app.get("/api/search", function (req, res) {
   const q = (req.query.q || "").toLowerCase();
   res.send(
-    pokemonWithPrices
-      .filter(({ name: { english } }) => english.toLowerCase().includes(q))
-      .map((pokemon) => ({
-        ...pokemon,
+    charactersWithPower
+      .filter(({ name }) => name.toLowerCase().includes(q))
+      .map((characters) => ({
+        ...characters,
       }))
       .slice(0, 20)
   );

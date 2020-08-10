@@ -4,7 +4,7 @@ const DashboardPlugin = require("@module-federation/dashboard-plugin");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:8083/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 8081,
+    port: 8083,
     historyApiFallback: true,
   },
 

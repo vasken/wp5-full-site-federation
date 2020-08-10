@@ -15,17 +15,17 @@ app.post("/api/checkout", function (req, res) {
 });
 
 app.post("/api/add", function (req, res) {
-  const pokemon = req.body.pokemon;
+  const character = req.body.character;
   let found = false;
   cart.items.forEach((item) => {
-    if (item.pokemon.name.english === pokemon.name.english) {
+    if (item.character.name === character.name) {
       item.count += 1;
       found = true;
     }
   });
   if (!found) {
     cart.items.push({
-      pokemon,
+      character,
       count: 1,
     });
   }

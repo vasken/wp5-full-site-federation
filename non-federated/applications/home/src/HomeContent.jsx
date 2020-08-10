@@ -3,12 +3,12 @@ import { Row, Col } from "react-bootstrap";
 import { useQuery } from "react-query";
 
 import { AddToCart } from "nf-ecomm-components";
-import { getImage, getPokemonById } from "nf-ecomm-logic";
+import { getImage, getCharacterById } from "nf-ecomm-logic";
 
-const PokemonCard = ({ id, children, right }) => {
-  const { data: pokemon } = useQuery(
-    ["getPokemonById", { id }],
-    getPokemonById
+const CharacterCard = ({ id, children, right }) => {
+  const { data: character } = useQuery(
+    ["getCharacterById", { id }],
+    getCharacterById
   );
 
   return (
@@ -21,28 +21,28 @@ const PokemonCard = ({ id, children, right }) => {
       }}
     >
       <Row>
-        {pokemon && (
+        {character && (
           <>
             {!right && (
               <Col xs={3}>
-                <img src={getImage(pokemon)} style={{ width: "100%" }} />
+                <img src={getImage(character)} style={{ width: "100%" }} />
               </Col>
             )}
             <Col xs={9}>
-              <h1>{pokemon.name.english}</h1>
+              <h1>{character.name}</h1>
               {children}
               <Row>
                 <Col xs={{ span: 1, offset: 8 }} style={{ fontWeight: "bold" }}>
-                  ${pokemon.price}
+                  ${character.power}
                 </Col>
                 <Col xs={{ span: 3 }}>
-                  <AddToCart pokemon={pokemon} />
+                  <AddToCart character={character} />
                 </Col>
               </Row>
             </Col>
             {right && (
               <Col xs={3}>
-                <img src={getImage(pokemon)} style={{ width: "100%" }} />
+                <img src={getImage(character)} style={{ width: "100%" }} />
               </Col>
             )}
           </>
@@ -54,37 +54,28 @@ const PokemonCard = ({ id, children, right }) => {
 
 const HomeContent = () => (
   <>
-    <PokemonCard id={10}>
+    <CharacterCard id={70}>
       <p>
-        Caterpie is a Pokémon that resembles a green caterpillar with a yellow
-        underside and teardrop-shaped tail. There are yellow ring-shaped
-        markings down the sides of its segmented body, which resemble its eyes
-        and are meant to scare off predators.
+		<strong>Batman</strong> originated from an incident in Bruce's childhood; after witnessing the murder of his parents 
+		Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. 
+		Bruce trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.
       </p>
-    </PokemonCard>
-    <PokemonCard id={20} right>
+    </CharacterCard>
+    <CharacterCard id={569} right>
       <p>
-        Raticate is a large rodent Pokémon. Although it is often depicted on its
-        hind legs, it is a quadruped. It is primarily tawny-colored with a cream
-        underside. It has narrow black eyes, ears with ragged edges and dark
-        insides, and large incisors that grow constantly. There are three
-        whiskers on each side of its face, which it uses to maintain balance. It
-        has short arms with three-fingered hands and webbed feet with three
-        toes. The webbing on its feet allows it to swim. Its tail is long and
-        scaly. A female will have shorter whiskers and lighter fur.
+		Soon there will be war. Millions will burn. Millions will perish in sickness and misery. 
+		Why does one death matter against so many? Because there is good and there is evil, and evil must be punished. 
+		Even in the face of Armageddon I shall not compromise in this. 
+		But there are so many deserving of retribution ... and there is so little time.
       </p>
-    </PokemonCard>
-    <PokemonCard id={30}>
+    </CharacterCard>
+    <CharacterCard id={69}>
       <p>
-        Nidorina is a quadruped, light blue Pokémon with darker blue patches. It
-        has red eyes, large, spiny ears, and has two pointed teeth protruding
-        from its upper jaw. It possesses large poison spikes, which it retracts
-        whenever it is with a group or while resting in its burrow. Its paws
-        have three claws each, and it is able to stand on its hind legs. The
-        hind legs are longer and thicker than its forelegs. It has a stubby
-        tail. Nidorina is a female-only species.
+		<strong>Superman</strong> was born on the planet Krypton and was given the name Kal-El at birth. 
+		As a baby, his parents sent him to Earth in a small spaceship moments before Krypton was destroyed in a natural cataclysm. ... 
+		Clark Kent resides in the fictional American city of Metropolis, where he works as a journalist for the Daily Planet.
       </p>
-    </PokemonCard>
+    </CharacterCard>
   </>
 );
 

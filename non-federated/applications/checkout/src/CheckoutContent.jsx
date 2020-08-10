@@ -8,30 +8,27 @@ const Cart = ({ items }) => (
   <Table striped>
     <thead>
       <tr>
-        <th colSpan="2">Pokemon</th>
-        <th>Quantity</th>
-        <th>Unit Price</th>
-        <th>Total</th>
+        <th colSpan="2">Heroes</th>
+        <th>Lives</th>
+        <th>Power</th>
       </tr>
     </thead>
     <tbody>
-      {items.map(({ pokemon, count }) => (
-        <tr key={pokemon.name.english}>
+      {items.map(({ character, count }) => (
+        <tr key={character.name}>
           <td width="5%">
-            <img src={getImage(pokemon)} style={{ maxHeight: 50 }} />
+            <img src={getImage(character)} style={{ maxHeight: 50 }} />
           </td>
-          <td width="50%">{pokemon.name.english}</td>
+          <td width="50%">{character.name}</td>
           <td width="15%">{count}</td>
-          <td width="15%">${pokemon.price}</td>
-          <td width="15%">${count * pokemon.price}</td>
+          <td width="15%">{character.power}</td>
         </tr>
       ))}
       <tr>
-        <td colSpan="4">Grand Total</td>
+        <td colSpan="3">Total Power</td>
         <td>
-          $
           {items.reduce(
-            (a, { count, pokemon: { price } }) => a + count * price,
+            (a, { count, character: { power } }) => a + count * power,
             0
           )}
         </td>
@@ -44,7 +41,7 @@ const ConnectedCart = connect((state) => state)(Cart);
 
 const CheckoutButton = ({ onReset }) => (
   <Button onClick={onReset} style={{ width: "100%" }}>
-    Checkout
+    Engage
   </Button>
 );
 
@@ -66,7 +63,7 @@ const ConnectedCheckoutButton = connect(
 const CheckoutContent = () => {
   return (
     <>
-      <h1>Pokemon in your cart</h1>
+      <h1>Heroes selected</h1>
       <Row style={{ marginTop: "1em" }}>
         <Col xs={8}>
           <ConnectedCart />

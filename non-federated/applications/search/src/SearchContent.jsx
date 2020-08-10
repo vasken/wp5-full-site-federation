@@ -3,11 +3,11 @@ import { FormControl, Row, Col, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 
 import { AddToCart } from "nf-ecomm-components";
-import { getImage, searchPokemon } from "nf-ecomm-logic";
+import { getImage, searchCharacters } from "nf-ecomm-logic";
 
 const SearchContent = () => {
   const [search, searchSet] = React.useState("");
-  const { data } = useQuery(["searchPokemon", { q: search }], searchPokemon);
+  const { data } = useQuery(["searchCharacters", { q: search }], searchCharacters);
 
   return (
     <>
@@ -28,11 +28,11 @@ const SearchContent = () => {
         }}
       >
         {data &&
-          data.map((pokemon) => (
-            <Card style={{ width: "18rem" }} key={pokemon.name.english}>
+          data.map((character) => (
+            <Card style={{ width: "18rem" }} key={character.name}>
               <Card.Img
                 variant="top"
-                src={getImage(pokemon)}
+                src={getImage(character)}
                 style={{
                   maxHeight: 200,
                   objectFit: "contain",
@@ -41,12 +41,12 @@ const SearchContent = () => {
                 }}
               />
               <Card.Body>
-                <Card.Title>{pokemon.name.english}</Card.Title>
-                <Card.Text>{pokemon.type.join(", ")}</Card.Text>
+                <Card.Title>{character.name}</Card.Title>
+                <Card.Text>{Object.keys(character.powerstats).reduce((a, c) => `${a} ${c}: ${character.powerstats[c]}`, '')}</Card.Text>
                 <Row>
-                  <Col xs={4}>${pokemon.price}</Col>
+                  <Col xs={4}>${character.power}</Col>
                   <Col xs={8}>
-                    <AddToCart pokemon={pokemon}>Add To Cart</AddToCart>
+                    <AddToCart character={character}>Add To Cart</AddToCart>
                   </Col>
                 </Row>
               </Card.Body>

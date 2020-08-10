@@ -8,8 +8,7 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Jack Herrington",
-    "email": "jherr@pobox.com"
+    "name": "Robert Beghian"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",

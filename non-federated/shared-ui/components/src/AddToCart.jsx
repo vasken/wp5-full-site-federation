@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 
 import { addToCart } from "nf-ecomm-logic";
 
-const AddToCart = ({ pokemon, addToCart }) => (
-  <Button onClick={() => addToCart(pokemon)} style={{ width: "100%" }}>
-    Add To Cart
+const AddToCart = ({ character, addToCart }) => (
+  <Button onClick={() => addToCart(character)} style={{ width: "100%" }}>
+    Select
   </Button>
 );
 
-const postAddToCart = (pokemon) => (dispatch) =>
-  addToCart(pokemon).then((payload) =>
+const postAddToCart = (character) => (dispatch) =>
+  addToCart(character).then((payload) =>
     dispatch({
       type: "SET_ITEMS",
       payload,
@@ -21,6 +21,6 @@ const postAddToCart = (pokemon) => (dispatch) =>
 export default connect(
   () => ({}),
   (dispatch) => ({
-    addToCart: (pokemon) => dispatch(postAddToCart(pokemon)),
+    addToCart: (character) => dispatch(postAddToCart(character)),
   })
 )(AddToCart);
