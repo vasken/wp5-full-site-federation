@@ -1,3 +1,3 @@
-import AddToCart from "./AddToCart";
+import Select from "./Select";
 
-export { AddToCart };
+export { Select };

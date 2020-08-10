@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { useQuery } from "react-query";
 
-import { AddToCart } from "nf-ecomm-components";
+import { Select } from "nf-ecomm-components";
 import { getImage, getCharacterById } from "nf-ecomm-logic";
 
 const CharacterCard = ({ id, children, right }) => {
@@ -36,7 +36,7 @@ const CharacterCard = ({ id, children, right }) => {
                   ${character.power}
                 </Col>
                 <Col xs={{ span: 3 }}>
-                  <AddToCart character={character} />
+                  <Select character={character} />
                 </Col>
               </Row>
             </Col>

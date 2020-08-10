@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl, Row, Col, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 
-import { AddToCart } from "nf-ecomm-components";
+import { Select } from "nf-ecomm-components";
 import { getImage, searchCharacters } from "nf-ecomm-logic";
 
 const SearchContent = () => {
@@ -46,7 +46,7 @@ const SearchContent = () => {
                 <Row>
                   <Col xs={4}>${character.power}</Col>
                   <Col xs={8}>
-                    <AddToCart character={character}>Add To Cart</AddToCart>
+                    <Select character={character}>Select</Select>
                   </Col>
                 </Row>
               </Card.Body>

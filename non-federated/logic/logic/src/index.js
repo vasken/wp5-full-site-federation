@@ -16,7 +16,7 @@ const getCharacterById = (_, { id }) =>
 const getCartItems = () =>
   fetch("http://localhost:7001/api/cart").then((resp) => resp.json());
 
-const addToCart = (character) =>
+const select = (character) =>
   fetch("http://localhost:7001/api/add", {
     method: "POST",
     body: JSON.stringify({
@@ -42,5 +42,5 @@ module.exports = {
   searchCharacters,
   getCharacterById,
   getCartItems,
-  addToCart,
+  select,
 };
