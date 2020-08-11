@@ -36,8 +36,8 @@ module.exports = {
 
   plugins: [
   	new ModuleFederationPlugin({
-  		name: "checkout",
-  		library: { type: "var", name: "checkout" },
+  		name: "search",
+  		library: { type: "var", name: "search" },
   		filename: "remoteEntry.js",
   		remotes: {
   			home:  "home",
@@ -45,6 +45,7 @@ module.exports = {
   			checkout: "checkout"
   		},
   		exposes: {
+  			'./Search': './src/SearchContent',
   			'./products' : './src/products',
   		},
   		shared: [

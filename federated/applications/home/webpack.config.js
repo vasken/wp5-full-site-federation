@@ -45,6 +45,7 @@ module.exports = {
   			checkout: "checkout"
   		},
   		exposes: {
+  			'./Home': './src/HomeContent',
   			'./Frame': './src/Frame',
   		},
   		shared: [
@@ -52,6 +53,7 @@ module.exports = {
   			"react-dom",
   			"react-bootstrap",
   			"react-bootstrap-icons",
+  			"react-router-dom",
   			"react-query",
   			"react-redux",
   			"redux"

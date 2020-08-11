@@ -44,8 +44,10 @@ module.exports = {
   			checkout: "checkout"
   		},
   		exposes: {
+  			'./Checkout': './src/CheckoutContent.jsx',
   			'./Select': './src/Select',
-  			'./store':  './src/store',
+  			'./store': './src/store',
+  			'./team': './src/team',
   		},
   		shared: [
   			"react",

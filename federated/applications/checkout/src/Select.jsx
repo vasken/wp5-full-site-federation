@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { select } from "nf-ecomm-logic";
+import { select } from "./team";
 
 const Select = ({ character, select }) => (
   <Button onClick={() => select(character)} style={{ width: "100%" }}>

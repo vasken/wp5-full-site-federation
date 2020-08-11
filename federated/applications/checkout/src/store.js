@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import { getCartItems } from "nf-ecomm-logic";
+import { getCartItems } from "checkout/team";
 
 const reducer = (state = { items: [] }, { type, payload }) => {
 	switch (type) {

@@ -3,7 +3,7 @@ import { Button, Row, Col, Table } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { getImage } from "search/products";
-import { checkout } from "nf-ecomm-logic";
+import { checkout } from "checkout/team";
 
 const Cart = ({ items }) => (
   <Table striped>
