@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
-import { Cart } from "react-bootstrap-icons";
+import { Lightning } from "react-bootstrap-icons";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Home = React.lazy(() => import("home/Home"));
@@ -56,7 +56,7 @@ const Frame = ({ items = [], page = "home", children }) => (
 							paddingBottom: 15,
 						}}
 					>
-						<Cart color="white" size={30} />
+						<Lightning color="white" size={30} />
 						<span style={{ color: "white", fontWeight: "bold", paddingLeft: 5 }}>
 							{items.reduce((a, { count }) => a + count, 0)}
 						</span>

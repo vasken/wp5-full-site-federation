@@ -41,7 +41,7 @@ const ConnectedCart = connect((state) => state)(Cart);
 
 const CheckoutButton = ({ onReset }) => (
   <Button onClick={onReset} style={{ width: "100%" }}>
-    Engage
+    Go Fight Crime
   </Button>
 );
 

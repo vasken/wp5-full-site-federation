@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
-import { Cart } from "react-bootstrap-icons";
+import { Lightning } from "react-bootstrap-icons";
 
 const Frame = ({ items = [], page = "home", children }) => (
   <Container>
@@ -35,7 +35,7 @@ const Frame = ({ items = [], page = "home", children }) => (
             paddingBottom: 15,
           }}
         >
-          <Cart color="white" size={30} />
+          <Lightning color="white" size={30} />
           <span style={{ color: "white", fontWeight: "bold", paddingLeft: 5 }}>
             {items.reduce((a, { count }) => a + count, 0)}
           </span>
